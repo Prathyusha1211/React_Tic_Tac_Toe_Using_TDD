@@ -5,8 +5,9 @@ import Square from "../Square/Square";
 const Board = () => {
     const [squares, setSquares] = useState(Array(9).fill(null))
     const [isXNext,setXIsNext] = useState(true)
+    let nextSquares
     const onSquareClick=(index)=>{
-        const nextSquares = squares.slice();
+        nextSquares = squares.slice();
         if(squares[index] || checkWinner(squares)) return;
         if(isXNext){
             nextSquares[index] = "X";
@@ -28,6 +29,7 @@ const Board = () => {
         }
         return null;
     };
+
 
     let status;
     let getWinner = checkWinner(squares);
